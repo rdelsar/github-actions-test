@@ -3,19 +3,29 @@ name: Rust Check
 on: [push]
 
 jobs:
-  build:
+  build_and_test:
+    name: Rust project
     runs-on: ubuntu-latest
+    steps:
+      #- uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - run: cargo build --release --all-features
+#jobs:
+ # build:
+  #  runs-on: ubuntu-latest
 
-    steps: 
-    - uses: actions/checkout@v4
-    - uses: cargo-bins/cargo-binstall@main
-    - name: Update rust
-      run: |
-        rustup override set stable
-        rustup update stable
-    - name: Run tests
-      run: cargo test
-    - name: Lint
-      run: cargo clippy
-    - name: Check formatting
-      run: cargo fmt --check
+    #steps: 
+      - uses: actions/checkout@v4
+      - uses: cargo-bins/cargo-binstall@main
+      - name: Update rust
+        run: |
+          rustup override set stable
+          rustup update stable
+      - name: Run tests
+        run: cargo test
+      -  name: Lint
+        run: cargo clippy
+      - name: Check formatting
+        run: cargo fmt --check
