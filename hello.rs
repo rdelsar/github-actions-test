@@ -1,2 +1,4 @@
-println("hello world");
-println("hey");
+fn main(){
+  println!("hello world");
+  println!("hey");
+}
