@@ -21,27 +21,18 @@
       #run: cargo build --verbose
     #- name: Run tests
       #run: cargo test --verbose
-#on: [push]
-#name: Clippy check
-#jobs:
-  #clippy_check:
-    #runs-on: ubuntu-latest
-    #steps:
-      #- uses: actions/checkout@v2
-      #- uses: actions-rs/toolchain@v1
-        #with:
-            #toolchain: nightly
-            #components: clippy
-            #override: true
-      #- uses: actions-rs/clippy-check@v1
-        #with:
-          #token: ${{ secrets.GITHUB_TOKEN }}
-name: Lint
-on: [push, pull_request]
+on: [push]
+name: Clippy check
 jobs:
-  lint:
-    name: Lint
+  clippy_check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: max/awesome-lint@v2.0.0
+      - uses: actions-rs/toolchain@v1
+        with:
+            toolchain: nightly
+            components: clippy
+            override: true
+      - uses: actions-rs/clippy-check@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
