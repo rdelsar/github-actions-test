@@ -13,9 +13,7 @@ jobs:
         rustup override set stable
         rustup update stable
     - name: Run tests
-      run: |
-        npm install
-        npm run test
+      run: cargo test
     - name: Lint
       run: cargo clippy
     - name: Check formatting
