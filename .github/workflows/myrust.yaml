@@ -3,21 +3,11 @@ name: Rust Check
 on: [push]
 
 jobs:
-  build_and_test:
-    name: Rust project
+  build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-      - run: cargo build --release --all-features
-#jobs:
- # build:
-  #  runs-on: ubuntu-latest
 
-    #steps: 
-     # - uses: actions/checkout@v4
+    steps: 
+      - uses: actions/checkout@v4
       - uses: cargo-bins/cargo-binstall@main
       - name: Update rust
         run: |
@@ -25,7 +15,7 @@ jobs:
           rustup update stable
       - name: Run tests
         run: cargo test
-      -  name: Lint
+      - name: Lint
         run: cargo clippy
       - name: Check formatting
         run: cargo fmt --check
