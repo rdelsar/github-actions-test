@@ -260,6 +260,7 @@ snapbox.workspace = true
 [build-dependencies]
 flate2.workspace = true
 tar.workspace = true
+gh-workflow = "*"
 
 [[bin]]
 name = "cargo"
