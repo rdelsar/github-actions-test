@@ -8,6 +8,8 @@ jobs:
 
     steps: 
     - uses: actions/checkout@v4
+    - name: Use local
+      uses: ./.github/src/hey
     - name: Update rust
       run: |
         rustup override set stable
