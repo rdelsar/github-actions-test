@@ -264,8 +264,9 @@ gh-workflow = "*"
 
 [[bin]]
 name = "cargo"
-test = false
-doc = false
+#test = false
+#doc = false
+path = "src/main.rs"
 
 [features]
 vendored-openssl = ["openssl/vendored"]
