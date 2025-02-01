@@ -148,7 +148,7 @@ Cargo, a package manager for Rust.
 
 [lib]
 name = "cargo"
-path = "src/cargo/hey.rs"
+path = "src/hey.rs"
 
 [dependencies]
 annotate-snippets.workspace = true
@@ -264,8 +264,8 @@ gh-workflow = "*"
 
 [[bin]]
 name = "cargo"
-#test = false
-#doc = false
+test = false
+doc = false
 path = "src/main.rs"
 
 [features]
