@@ -18,17 +18,7 @@
 name: autofix.ci
 env:
   RUSTFLAGS: -Dwarnings
-on:
-  pull_request:
-    types:
-    - opened
-    - synchronize
-    - reopened
-    branches:
-    - main
-  push:
-    branches:
-    - main
+on: [push]
 jobs:
   lint:
     name: Lint Fix
@@ -49,6 +39,7 @@ jobs:
           ~/.cargo/git
           target
     - name: Cargo Fmt
+    - uses: cargo-bins/cargo-binstall@main
       run: cargo +nightly fmt --all
     - name: Cargo Clippy
       run: cargo +nightly clippy --fix --allow-dirty --all-features --workspace -- -D warnings
