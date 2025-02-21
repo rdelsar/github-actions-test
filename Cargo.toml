@@ -10,4 +10,4 @@ env_logger = "0.10"
 
 [[bin]]
 name = "my_rust_project"
-path = "src/main.rs"
+path = "src/hey.rs"
