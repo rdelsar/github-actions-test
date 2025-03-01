@@ -19,11 +19,7 @@ name: rust pipeline
 #       - name: Lint
 #         run: cargo clippy
 
-on:
-  workflow_run:
-    workflows: [Rust check]
-    types:
-      - completed
+on: [push]
 
 jobs:
   build:
