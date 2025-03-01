@@ -25,6 +25,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
     - uses: ./.github/workflows/myrust.yaml@main
     - name: lint
       run: cargo clippy
