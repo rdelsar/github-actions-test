@@ -27,15 +27,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/myrust.yaml
+
   #lint:
-    steps:
-      - uses: ./.github/workflows/myrust.yaml
-      - name: lint
-        run: cargo clippy
+    with:
+      name: lint
+      run: cargo clippy
     #with:
       #- name: Lint
       #run: cargo clippy
-      #- name: Lint
-        #run: cargo clippy
       
