@@ -1,3 +1,3 @@
 fn main() {
-    println!("hello world!");
+    println!("hello world, today is march 1!");
 }
