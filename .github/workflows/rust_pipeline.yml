@@ -27,7 +27,7 @@ on:
 
 jobs:
   lint:
-    uses: ./.github/workflows/myrust.yaml
+    uses: ./.github/workflows/myrust.yaml@main
   #runs-on: ubuntu-latest
     with:
       #- name: Lint
