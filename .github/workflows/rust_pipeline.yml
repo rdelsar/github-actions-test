@@ -26,12 +26,16 @@ on:
       - completed
 
 jobs:
-  lint:
-    uses: ./.github/workflows/myrust.yaml@main
-  #runs-on: ubuntu-latest
-    with:
+  build:
+    runs-on: ubuntu-latest
+  #lint:
+    steps:
+      - uses: ./.github/workflows/myrust.yaml
+      - name: lint
+        run: cargo clippy
+    #with:
       #- name: Lint
-      run: cargo clippy
+      #run: cargo clippy
       #- name: Lint
         #run: cargo clippy
       
