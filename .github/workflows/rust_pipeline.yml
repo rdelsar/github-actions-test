@@ -27,7 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     #- uses: ./.github/workflows/myrust.yaml@main
-    - uses: rdelsar/github-actions-test/action.yaml@v1
+    - uses: rdelsar/github-actions-test/.github/workflows/actions.yaml@main
     - name: lint
       run: cargo clippy
       
