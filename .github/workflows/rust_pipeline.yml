@@ -23,10 +23,11 @@ on: [push]
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/workflows/myrust.yaml
-      - name: Lint
+    uses: ./.github/workflows/myrust.yaml
+  #runs-on: ubuntu-latest
+    with:
+      #- name: Lint
         run: cargo clippy
+      #- name: Lint
+        #run: cargo clippy
       
