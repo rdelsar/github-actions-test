@@ -22,14 +22,10 @@ name: rust pipeline
 on: [push]
 
 jobs:
-  build:
-    uses: ./.github/workflows/myrust.yaml
-
-  #lint:
-    with:
-      name: lint
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: ./.github/workflows/myrust.yaml
+    - name: lint
       run: cargo clippy
-    #with:
-      #- name: Lint
-      #run: cargo clippy
       
