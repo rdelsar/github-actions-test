@@ -26,8 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    #- uses: ./.github/workflows/action.yaml@main
-    - uses: rdelsar/github-actions-test/myrust.yaml@main
+    #- uses: ./.github/workflows/myrust.yaml@main
+    - uses: rdelsar/github-actions-test/action.yaml@main
     - name: lint
       run: cargo clippy
       
