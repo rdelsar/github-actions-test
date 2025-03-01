@@ -10,11 +10,11 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: cargo-bins/cargo-binstall@main
-      - name: Update rust
-        run: |
-          rustup override set stable
-          rustup update stable
+      #- uses: actions/checkout@v4
+      #- uses: cargo-bins/cargo-binstall@main
+      #- name: Update rust
+        #run: |
+          #rustup override set stable
+          #rustup update stable
       - name: Lint
         run: cargo clippy
