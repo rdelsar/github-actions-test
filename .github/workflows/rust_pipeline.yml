@@ -34,6 +34,6 @@ jobs:
   clippy:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/workflows/myrust.yaml@main
+      - uses: rdelsar/github-actions-test/./.github/workflows/myrust.yaml@main
       - name: Lint
         run: cargo clippy
