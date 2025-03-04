@@ -22,18 +22,18 @@ name: rust pipeline
 on: [push]
 
 jobs:
-#   clippy:
-#     uses: rdelsar/github-actions-test/.github/workflows/myrust.yaml@main
+   clippy:
+     uses: rdelsar/github-actions-test/.github/workflows/myrust.yaml@main
 #     #runs-on: ubuntu-latest
-#     with:
+     with:
 #     #- uses: actions/checkout@v4
 #     #- uses: ./.github/workflows/myrust.yaml@main
-#       name: lint
-#       run: cargo clippy
+       name: lint
+       run: cargo clippy
 
-  clippy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: rdelsar/github-actions-test/.github/workflows/myrust.yaml@main
-      - name: Lint
-        run: cargo clippy
+  # clippy:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: rdelsar/github-actions-test/.github/workflows/myrust.yaml@main
+  #     - name: Lint
+  #       run: cargo clippy
