@@ -1,4 +1,4 @@
-name: rust pipeline
+name: Lint
 
 on: [push]
 jobs:
