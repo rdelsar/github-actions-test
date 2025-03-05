@@ -1,35 +1,34 @@
 name: rust pipeline
 
-# on: 
+on: [push]
 #   workflow_run:
 #     workflows: [Rust check]
 #     types: 
 #       - completed
-
-# jobs:
-#   lint:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-#       - uses: cargo-bins/cargo-binstall@main
-#       #- name: Update rust
-#         #run: |
-#           #rustup override set stable
-#           #rustup update stable
-#       - name: Lint
-#         run: cargo clippy
-
-on: [push]
-
 jobs:
-   clippy:
-     uses: rdelsar/github-actions-test/.github/workflows/myrust.yaml@main
+   lint:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v4
+      - uses: cargo-bins/cargo-binstall@main
+      - name: Update rust
+        run: |
+          rustup override set stable
+          rustup update stable
+      - name: Lint
+        run: cargo clippy
+
+#on: [push]
+
+#jobs:
+   #clippy:
+     #uses: rdelsar/github-actions-test/.github/workflows/myrust.yaml@main
 #     #runs-on: ubuntu-latest
-     with:
+     #with:
 #     #- uses: actions/checkout@v4
 #     #- uses: ./.github/workflows/myrust.yaml@main
-       name: lint
-       run: cargo clippy
+       #name: lint
+       #run: cargo clippy
 
   # clippy:
   #   runs-on: ubuntu-latest
