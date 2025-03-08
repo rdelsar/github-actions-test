@@ -1,0 +1,44 @@
+name: Auto Format Rust Code
+
+on: [pull_request]
+
+permissions:
+  contents: write
+
+jobs:
+  auto-format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.event.pull_request.head.ref }}  # Ensure we check out the PR branch
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt
+
+      - name: Format code
+        run: cargo fmt
+     #    # git reset --soft $(git rev-list --max-parents=1 HEAD)
+
+      # - name: Commit changes
+      #   run: |
+      #     git config --global user.name "github-actions[bot]"
+      #     git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      #     git add .
+      #     git diff --quiet && git diff --staged --quiet || git commit -m "Auto-format Rust code"
+      #     git commit --amend --no-edit  # Amend last commit without changing the message
+      #     git push origin HEAD:${{ github.event.pull_request.head.ref }}
+      - name: Squash changes into a single commit and push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout ${{ github.event.pull_request.head.ref }}  # Ensure we are on the PR branch
+          git add .
+          
+          git commit --amend --no-edit 
+          git push --force-with-lease origin ${{ github.event.pull_request.head.ref }}
+          
