@@ -22,6 +22,7 @@ jobs:
 
       - name: Format code
         run: cargo fmt
+     #    # git reset --soft $(git rev-list --max-parents=1 HEAD)
 
       # - name: Commit changes
       #   run: |
@@ -38,6 +39,6 @@ jobs:
           git checkout -B ${{ github.event.pull_request.head.ref }}
           git add .
           
-          git reset --soft $(git rev-list --max-parents=1 HEAD)
           git commit --amend --no-edit 
-          git push --force origin ${{ github.event.pull_request.head.ref }}
+          git push --force-with-lease origin ${{ github.event.pull_request.head.ref }}
+          
