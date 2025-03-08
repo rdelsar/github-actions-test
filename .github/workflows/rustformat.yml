@@ -30,7 +30,7 @@ jobs:
           git add .
           git diff --quiet && git diff --staged --quiet
             
-          git push --force-with-lease origin HEAD:${{ github.event.pull_request.head.ref }}
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
 # git commit --amend --no-edit
       # - name: Commit changes (single commit only)
       #   run: |
