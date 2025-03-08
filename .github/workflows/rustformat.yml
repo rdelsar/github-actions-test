@@ -37,12 +37,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -B ${{ github.event.pull_request.head.ref }}
           git add .
-
-          # Reset to the last commit but keep the changes staged
+          
           git reset --soft $(git rev-list --max-parents=1 HEAD)
-
-          # Create a single commit with the existing commit message
           git commit --amend --no-edit 
-
-          # Force push to overwrite history with a single commit
           git push --force origin ${{ github.event.pull_request.head.ref }}
