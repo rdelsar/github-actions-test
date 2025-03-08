@@ -3,6 +3,6 @@ fn main() {
     let mut x = 8;
     let mut y = 6;
     println!("{}", x + y);
-    x = 7;
-    y = 2;
+    let x = 7;
+    let y = 2;
 }
