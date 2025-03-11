@@ -60,3 +60,8 @@ jobs:
       - name: Format code
         run: cargo fmt
 
+      - name: commit
+        run: |
+         git add . 
+         git commit --amend
+         git push origin HEAD:${{ github.event.pull_request.head.ref}}
