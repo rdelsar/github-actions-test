@@ -43,17 +43,14 @@
 
       #     git push --force-with-lease origin HEAD:${{ github.event.pon: pull_request
 name: "Test Suite"
-on:
-  push:
-  pull_request:
+on: [pull_request]
+
+permissions: 
+  contents: write
 
 jobs:
   formatting:
-    name: cargo fmt
     runs-on: ubuntu-latest
-    permissions: 
-      contents: write
-      pull-requests: write
     steps:
       - uses: actions/checkout@v4
       - name: install rust
