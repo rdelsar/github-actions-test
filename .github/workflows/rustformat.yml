@@ -42,21 +42,22 @@
       #     git diff --quiet && git diff --staged --quiet || git commit -m "auto format"
 
       #     git push --force-with-lease origin HEAD:${{ github.event.pon: pull_request
+name: "Test Suite"
+on:
+  push:
+  pull_request:
 
-name: Rustfmt
-on: [pull_request]
 jobs:
-  format:
+  formatting:
+    name: cargo fmt
     runs-on: ubuntu-latest
-    permissions:
+    permissions: 
       contents: write
-      pull-requests: write
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@stable
+      # Ensure rustfmt is installed and setup problem matcher
+      - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           components: rustfmt
-      - uses: mbrobbel/rustfmt-check@master
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          mode: pull
+      - name: Rustfmt Check
+        uses: actions-rust-lang/rustfmt@v1
