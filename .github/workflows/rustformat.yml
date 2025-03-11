@@ -30,7 +30,6 @@ jobs:
           git add .
           git diff --quiet && git diff --staged --quiet || git commit -m "auto format"
           git commit --amend --no-edit
-          git rebase --continue
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
           
 # git commit --amend --no-edit
