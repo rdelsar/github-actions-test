@@ -27,8 +27,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -a
-          git diff --quiet && git diff --staged --quiet || git commit -m "auto format"
+          git add .
+          git diff --quiet && git diff --staged --quiet || git commit 
           git commit --amend --no-edit -a
           git push --force-with-lease origin HEAD:${{ github.event.pull_request.head.ref }}
 
